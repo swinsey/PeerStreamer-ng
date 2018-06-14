@@ -37,7 +37,7 @@ $(GRAPES)/src/libgrapes.a:
 Libs/pstreamer/src/libpstreamer.a:
 	git submodule init Libs/pstreamer/
 	git submodule update Libs/pstreamer/
-	NET_HELPER=$(PWD)/$(NET_HELPER) GRAPES=$(PWD)/$(GRAPES) make -C Libs/pstreamer/ 
+	CFLAGS="$(CFLAGS) -DLOG_CHUNK -DLOG_SIGNAL" NET_HELPER=$(PWD)/$(NET_HELPER) GRAPES=$(PWD)/$(GRAPES) make -C Libs/pstreamer/ 
 
 Tools/janus/bin/janus:
 	git submodule init Libs/janus-gateway/
